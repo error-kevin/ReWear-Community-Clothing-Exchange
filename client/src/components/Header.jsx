@@ -1,16 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
-  return (
-    <header>
-      <h1>ReWear</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/add-item">Add Item</a>
-      </nav>
-    </header>
-  );
+    return (
+        <header className="header">
+            <h1>Community Clothing Exchange</h1>
+            <nav>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/add-item">Add Item</Link></li>
+                </ul>
+            </nav>
+        </header>
+    );
 };
 
 export default Header;

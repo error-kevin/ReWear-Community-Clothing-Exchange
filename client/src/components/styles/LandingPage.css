@@ -1,0 +1,14 @@
+.landing-page {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.landing-page h2 {
+    color: #333;
+}
+
+.landing-page p {
+    color: #666;
+    font-size: 1.2em;
+}
