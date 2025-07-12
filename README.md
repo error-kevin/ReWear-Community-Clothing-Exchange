@@ -46,3 +46,20 @@ ReWear is a web-based platform designed to facilitate the exchange of unused clo
 - **Moderate and Approve/Reject Item Listings**: Ensure quality and appropriateness of listed items.
 - **Remove Inappropriate or Spam Items**: Maintain a safe and respectful community.
 - **Lightweight Admin Panel for Oversight**: Simple interface for managing the platform.
+
+## Team Name
+
+**Trio-Sync**
+
+## Team Members
+
+- **Keshav Joshi**  
+  Email: keshav123joshi@gmail.com
+
+- **Khushi Raghuwanshi**  
+  Email: khushiraghuwanshi020@gmail.com
+
+- **Urvashi Sharma**  
+  Email: sharmaurwashi146@gmial.com
+
+Feel free to reach out to any of the team members for questions or collaboration opportunities!
