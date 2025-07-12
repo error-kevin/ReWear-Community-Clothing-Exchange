@@ -47,10 +47,6 @@ ReWear is a web-based platform designed to facilitate the exchange of unused clo
 - **Remove Inappropriate or Spam Items**: Maintain a safe and respectful community.
 - **Lightweight Admin Panel for Oversight**: Simple interface for managing the platform.
 
-## Team Name
-
-**Trio-Sync**
-
 ## Team Members
 
 - **Keshav Joshi**  
