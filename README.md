@@ -58,4 +58,8 @@ ReWear is a web-based platform designed to facilitate the exchange of unused clo
 - **Urvashi Sharma**  
   Email: sharmaurwashi146@gmial.com
 
+## Vid Link
+
+https://www.canva.com/design/DAGs9IPSwik/ASanTnUTPxgPw1g388aLdw/watch?utm_content=DAGs9IPSwik&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbcbf9a28e9
+
 Feel free to reach out to any of the team members for questions or collaboration opportunities!
