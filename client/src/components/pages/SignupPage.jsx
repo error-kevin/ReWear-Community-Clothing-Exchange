@@ -1,7 +1,6 @@
-// src/pages/SignupPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/AuthPages.css'; // Adjusted path
+import '../styles/AuthPages.css';
 
 const SignupPage = () => {
     const [username, setUsername] = useState('');
@@ -12,12 +11,11 @@ const SignupPage = () => {
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setSuccess('');
 
-        // Basic validation
         if (!username || !email || !password || !confirmPassword) {
             setError('All fields are required.');
             return;
@@ -31,15 +29,32 @@ const SignupPage = () => {
             return;
         }
 
-        // --- Simulate API call for signup ---
-        console.log('Attempting to sign up with:', { username, email, password });
+        try {
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    email,
+                    password
+                })
+            });
 
-        setTimeout(() => {
-            setSuccess('Account created successfully! Redirecting to login...');
-            setTimeout(() => {
-                navigate('/login');
-            }, 2000); // Redirect after 2 seconds
-        }, 1000); // Wait for 1 second before showing success message
+            const data = await response.json();
+
+            if (response.ok) {
+                setSuccess(data.message);
+                setTimeout(() => navigate('/login'), 2000);
+            } else {
+                setError(data.error || 'Something went wrong.');
+            }
+
+        } catch (err) {
+            console.error('Error:', err);
+            setError('Server error. Please try again later.');
+        }
     };
 
     return (
