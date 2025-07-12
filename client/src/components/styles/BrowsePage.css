@@ -1,60 +1,60 @@
 .browse-container {
   padding: 2rem;
-  background: #f5f5f0; /* Light beige background */
+  background: #f5f5f0;
   min-height: 90vh;
-  font-family: 'Poppins', sans-serif; /* Modern and elegant font */
+  font-family: 'Poppins', sans-serif;
   text-align: center;
 }
 
 .browse-container h1 {
-  font-size: 3rem; /* Larger font for the header */
-  color: #4e3b31; /* Dark brown for better contrast */
+  font-size: 3rem;
+  color: #4e3b31;
 }
 
 .browse-container p {
-  font-size: 1.2rem; /* Font size for description */
-  color: #6b4f3a; /* Softer brown for better readability */
+  font-size: 1.2rem;
+  color: #6b4f3a;
   margin-bottom: 2rem;
 }
 
 .item-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-  gap: 1.5rem; /* Space between items */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .item-card {
-  background-color: #ffffff; /* White background for item cards */
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
 .item-card img {
-  width: 100%; /* Responsive image */
-  border-radius: 8px; /* Rounded corners for images */
+  width: 100%;
+  border-radius: 8px;
 }
 
 .item-card h3 {
-  font-size: 1.5rem; /* Font size for item name */
-  color: #6b4f3a; /* Softer brown for better readability */
+  font-size: 1.5rem;
+  color: #6b4f3a;
 }
 
 .item-card p {
-  font-size: 1rem; /* Font size for description */
-  color: #7a5b4a; /* Softer brown for the description */
+  font-size: 1rem;
+  color: #7a5b4a;
 }
 
 .item-card span {
-  display: block; /* Each span on a new line */
-  font-size: 1.2rem; /* Font size for price */
-  color: #4e3b31; /* Dark brown for contrast */
-  margin: 0.5rem 0; /* Margin for spacing */
+  display: block;
+  font-size: 1.2rem;
+  color: #4e3b31;
+  margin: 0.5rem 0;
 }
 
 .item-card button {
-  background-color: #8d5b3a; /* Primary button color */
+  background-color: #8d5b3a;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -65,5 +65,5 @@
 }
 
 .item-card button:hover {
-  background-color: #7a4a30; /* Darker shade on hover */
+  background-color: #7a4a30;
 }
