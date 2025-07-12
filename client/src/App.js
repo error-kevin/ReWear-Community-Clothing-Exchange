@@ -17,9 +17,9 @@ import ItemDetail from './components/pages/ItemDetail.jsx';
 import AddItem from './components/pages/AddItem.jsx';
 import LoginPage from './components/pages/LoginPage.jsx'; // Re-added LoginPage
 import SignupPage from './components/pages/SignupPage.jsx'; // Re-added SignupPage
+import BrowsePage from './components/pages/BrowsePage.jsx';
 
 // Placeholder for other pages (ensure these files exist in src/pages/ or are defined here)
-const BrowsePage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Browse Items</h2><p>Explore clothing available for swap or redemption.</p></div>;
 const AdminPanelPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Admin Panel</h2><p>Moderate items and users.</p></div>;
 const AboutPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>About Us</h2><p>Learn more about Rewear.</p></div>;
 const ContactPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Contact Us</h2><p>Get in touch with us.</p></div>;
