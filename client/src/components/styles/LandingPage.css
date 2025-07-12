@@ -1,14 +1,95 @@
-.landing-page {
-    text-align: center;
-    padding: 50px;
-    background-color: #f4f4f4;
+/* src/pages/LandingPage.css */
+
+.landing-container {
+  padding: 2rem;
+  text-align: center;
+  background: #f5f5f0; /* Light beige background */
+  min-height: 90vh;
+  font-family: 'Poppins', sans-serif; /* Modern and elegant font */
 }
 
-.landing-page h2 {
-    color: #333;
+.landing-hero h1 {
+  font-size: 3.5rem; /* Increased font size for a bolder look */
+  margin-bottom: 1rem;
+  color: #4e3b31; /* Dark brown for better contrast */
 }
 
-.landing-page p {
-    color: #666;
-    font-size: 1.2em;
+.brand-name {
+  color: #8d5b3a; /* Warm brown for brand emphasis */
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 1.5rem; /* Slightly larger for emphasis */
+  color: #6b4f3a; /* Softer brown for better readability */
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cta-buttons button {
+  background-color: #8d5b3a; /* Primary button color */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+.cta-buttons button:hover {
+  background-color: #7a4a30; /* Darker shade on hover */
+}
+
+.featured-placeholder {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for a premium feel */
+}
+
+.featured-placeholder h2 {
+  font-size: 2rem; /* Larger font for featured items */
+  color: #4e3b31; /* Consistent dark brown color */
+}
+
+.featured-placeholder p {
+  font-size: 1.2rem; /* Slightly larger text */
+  color: #7a5b4a; /* Softer brown for the description */
+}
+
+/* Add a hover effect for buttons */
+.cta-buttons button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-buttons button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.4s ease, left 0.4s ease;
+  z-index: 0;
+}
+
+.cta-buttons button:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.cta-buttons button span {
+  position: relative;
+  z-index: 1;
 }

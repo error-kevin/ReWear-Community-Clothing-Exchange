@@ -7,6 +7,8 @@ import DashBoard from './components/pages/DashBoard.jsx';
 import ItemDetail from './components/pages/ItemDetail.jsx';
 import AddItem from './components/pages/AddItem.jsx';
 
+
+
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -56,7 +58,7 @@ const YourComponent = () => {
     );
 };
 
-// Main App Component
+
 const App = () => {
     return (
         <Router>
@@ -68,6 +70,7 @@ const App = () => {
                     <Route path="/dashboard" element={<DashBoard />} />
                     <Route path="/item/:id" element={<ItemDetail />} />
                     <Route path="/add-item" element={<AddItem />} />
+                    
                 </Routes>
             </ErrorBoundary>
             <Footer />
