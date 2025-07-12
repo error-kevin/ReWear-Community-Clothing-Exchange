@@ -17,11 +17,6 @@ def create_app():
     """App factory that sets up Flask, PyMongo, and SocketIO."""
     app = Flask(__name__)
 
-<<<<<<< Updated upstream
-    CORS(app)
-
-=======
->>>>>>> Stashed changes
     app.config['MONGO_URI'] = os.environ.get(
         'MONGO_URI',
         'mongodb://localhost:27017/rewear'

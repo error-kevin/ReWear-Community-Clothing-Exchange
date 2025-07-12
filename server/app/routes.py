@@ -1,9 +1,5 @@
 from flask import Blueprint, request, jsonify
-<<<<<<< Updated upstream
-from bson.objectid import ObjectId
-=======
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
->>>>>>> Stashed changes
 from .models import (
     insert_item, get_all_items,
     insert_user, find_user_by_username, check_user_password
