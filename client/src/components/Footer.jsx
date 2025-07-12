@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css'; // Adjusted path
+import './Footer.css'; // Make sure this CSS is updated
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -12,6 +12,7 @@ const Footer = () => {
                     <h3>About Rewear</h3>
                     <p>Promoting sustainable fashion through clothing swaps and reuse.</p>
                 </div>
+
                 <div className="footer-section quick-links">
                     <h3>Quick Links</h3>
                     <ul>
@@ -21,9 +22,9 @@ const Footer = () => {
                         <li><Link to="/terms">Terms of Service</Link></li>
                     </ul>
                 </div>
+
                 <div className="footer-section social-media">
                     <h3>Follow Us</h3>
-                    {/* Placeholder for social media icons */}
                     <div className="social-icons">
                         <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
                         <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -31,6 +32,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+
             <div className="footer-bottom">
                 <p>&copy; {currentYear} Rewear. All rights reserved.</p>
             </div>
