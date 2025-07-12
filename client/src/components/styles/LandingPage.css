@@ -1,95 +1,332 @@
-/* src/pages/LandingPage.css */
+/* src/styles/LandingPage.css */
 
 .landing-container {
-  padding: 2rem;
+  padding: 0; /* Remove padding from container to allow full width elements */
   text-align: center;
   background: #f5f5f0; /* Light beige background */
-  min-height: 90vh;
+  min-height: 100vh; /* Use 100vh for full viewport height */
   font-family: 'Poppins', sans-serif; /* Modern and elegant font */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+/* Hero Section */
+.landing-hero {
+  padding: 4rem 2rem; /* Increased padding */
+  text-align: center;
+  background: #f5f5f0;
+  width: 100%; /* Take full width */
 }
 
 .landing-hero h1 {
-  font-size: 3.5rem; /* Increased font size for a bolder look */
+  font-size: 3.8rem; /* Further increased font size */
   margin-bottom: 1rem;
-  color: #4e3b31; /* Dark brown for better contrast */
+  color: #4e3b31;
 }
 
 .brand-name {
-  color: #8d5b3a; /* Warm brown for brand emphasis */
+  color: #8d5b3a;
   font-weight: bold;
 }
 
 .tagline {
-  font-size: 1.5rem; /* Slightly larger for emphasis */
-  color: #6b4f3a; /* Softer brown for better readability */
-  margin-bottom: 2rem;
+  font-size: 1.6rem; /* Slightly larger for emphasis */
+  color: #6b4f3a;
+  margin-bottom: 3rem; /* Increased margin */
 }
 
 .cta-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem; /* Increased gap */
 }
 
 .cta-buttons button {
-  background-color: #8d5b3a; /* Primary button color */
+  background-color: #8d5b3a;
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 1rem 2rem; /* Larger padding */
+  border-radius: 10px; /* More rounded corners */
+  font-size: 1.1rem; /* Slightly larger font */
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
 }
 
 .cta-buttons button:hover {
-  background-color: #7a4a30; /* Darker shade on hover */
+  background-color: #7a4a30;
+  transform: translateY(-3px); /* Subtle lift effect */
 }
 
-.featured-placeholder {
-  margin-top: 4rem;
+/* Search Bar and Banner Section */
+.search-banner-section {
+  width: 100%;
+  max-width: 1200px; /* Constrain width for better aesthetics */
+  margin: 2rem auto; /* Center with margin */
+  padding: 0 2rem; /* Add horizontal padding */
+}
+
+.search-input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 700px; /* Limit search input width */
+  padding: 1rem 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: 50px; /* Fully rounded */
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding-right: 4rem; /* Space for button */
+}
+
+.search-input:focus {
+  border-color: #8d5b3a;
+  box-shadow: 0 0 0 3px rgba(141, 91, 58, 0.2);
+  outline: none;
+}
+
+.search-button {
+  position: absolute;
+  right: calc(50% - 350px + 10px); /* Adjust based on max-width and padding */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #8d5b3a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #7a4a30;
+}
+
+.banner-image-container {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer; /* Indicate it's clickable */
+  transition: transform 0.3s ease;
+}
+
+.banner-image-container:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Categories Section */
+.categories-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
   padding: 2rem;
-  background-color: #ffffff; /* White background for contrast */
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for a premium feel */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.categories-section h2 {
+  font-size: 2.5rem;
+  color: #4e3b31;
+  margin-bottom: 2.5rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
+  justify-content: center; /* Center items in the grid */
+}
+
+.category-card {
+  background-color: #f0f0e8;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #6b4f3a;
+  cursor: pointer; /* Indicate it's clickable */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80px; /* Ensure a minimum height */
+}
+
+.category-card:hover {
+  background-color: #e0d8cc;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Listings Section */
+.product-listings-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-listings-section h2 {
+  font-size: 2.5rem;
+  color: #4e3b31;
+  margin-bottom: 2.5rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive product grid */
+  gap: 2rem;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: #f5f5f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left; /* Align text within card */
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.product-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px; /* Fixed height for images */
+  object-fit: cover; /* Crop images to fit */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+  color: #4e3b31;
+  margin-bottom: 0.5rem;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #7a5b4a;
+  margin-bottom: 0.3rem;
+}
+
+/* Featured Items (Original placeholder, adjusted positioning) */
+.featured-placeholder {
+  margin: 3rem auto 4rem auto; /* Adjusted margin */
+  padding: 2.5rem; /* Increased padding */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow */
+  width: 90%; /* Take more width */
+  max-width: 1000px; /* Max width for consistency */
 }
 
 .featured-placeholder h2 {
-  font-size: 2rem; /* Larger font for featured items */
-  color: #4e3b31; /* Consistent dark brown color */
+  font-size: 2.2rem;
+  color: #4e3b31;
 }
 
 .featured-placeholder p {
-  font-size: 1.2rem; /* Slightly larger text */
-  color: #7a5b4a; /* Softer brown for the description */
+  font-size: 1.3rem;
+  color: #7a5b4a;
 }
 
-/* Add a hover effect for buttons */
-.cta-buttons button {
-  position: relative;
-  overflow: hidden;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .landing-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons button {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .search-input-container {
+    padding: 0 1rem;
+  }
+
+  .search-input {
+    padding-right: 3.5rem;
+  }
+
+  .search-button {
+    right: 20px; /* Adjust for smaller screens */
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Stack products on small screens */
+  }
+
+  .product-card img {
+    height: 200px;
+  }
 }
 
-.cta-buttons button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  transition: width 0.4s ease, left 0.4s ease;
-  z-index: 0;
-}
+@media (max-width: 480px) {
+  .landing-hero h1 {
+    font-size: 2.2rem;
+  }
 
-.cta-buttons button:hover::after {
-  width: 100%;
-  left: 0;
-}
+  .tagline {
+    font-size: 1rem;
+  }
 
-.cta-buttons button span {
-  position: relative;
-  z-index: 1;
+  .categories-section h2,
+  .product-listings-section h2,
+  .featured-placeholder h2 {
+    font-size: 1.8rem;
+  }
+
+  .category-card,
+  .product-card {
+    padding: 1rem;
+  }
 }
