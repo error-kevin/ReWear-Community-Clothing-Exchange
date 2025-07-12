@@ -9,6 +9,7 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import ProtectedRoute from './components/pages/ProtectedRoute.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
+import ContactHelp from './pages/ContactHelp';
 
 // Import page components
 import LandingPage from './components/pages/LandingPage.jsx';
@@ -62,9 +63,10 @@ const App = () => {
                         <Route path="/browse" element={<BrowsePage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/signup" element={<SignupPage />} />
-                        <Route path="/item/:id" element={<ItemDetail />} /> {/* Item detail can be viewed by anyone */}
+                        <Route path="/item/:id" element={<ItemDetail />} /> 
+                        <Route path="/contact-help" element={<ContactHelp />}/>
 
-                        {/* Supporting Pages */}
+                        
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contact" element={<ContactPage />} />
                         <Route path="/privacy" element={<PrivacyPolicyPage />} />
