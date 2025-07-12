@@ -13,7 +13,7 @@ const LandingPage = () => {
         <div className="cta-buttons">
           <button onClick={() => navigate('/login')}>Start Swapping</button>
           <button onClick={() => navigate('/browse')}>Browse Items</button>
-          <button onClick={() => navigate('/add-item')}>List an Item</button>
+          <button onClick={() => navigate('/add-item')}>Add New Item</button>
         </div>
       </div>
 

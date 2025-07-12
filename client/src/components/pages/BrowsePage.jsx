@@ -1,15 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/BrowsePage.css';
 
 const BrowsePage = () => {
-  // Dummy data for clothing items
   const items = [
     {
       id: 1,
       name: 'Stylish Denim Jacket',
       description: 'A trendy denim jacket perfect for casual outings.',
       price: '₹2,500',
-      image: 'https://via.placeholder.com/150', // Replace with actual image URLs
+      image: 'https://via.placeholder.com/150',
     },
     {
       id: 2,
@@ -32,7 +32,20 @@ const BrowsePage = () => {
       price: '₹2,200',
       image: 'https://via.placeholder.com/150',
     },
-    // Add more items as needed
+    {
+      id: 5,
+      name: 'Floral Kurti',
+      description: 'Cotton floral kurti, ethnic and elegant.',
+      price: '₹1,200',
+      image: 'https://via.placeholder.com/150',
+    },
+    {
+      id: 6,
+      name: 'Vintage Hoodie',
+      description: 'Cozy hoodie with a retro feel.',
+      price: '₹2,700',
+      image: 'https://via.placeholder.com/150',
+    },
   ];
 
   return (
@@ -46,7 +59,9 @@ const BrowsePage = () => {
             <h3>{item.name}</h3>
             <p>{item.description}</p>
             <span>{item.price}</span>
-            <button>Swap Now</button>
+            <Link to={`/item/${item.id}`}>
+              <button>View Details</button>
+            </Link>
           </div>
         ))}
       </div>
