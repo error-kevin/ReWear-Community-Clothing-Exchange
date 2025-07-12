@@ -9,7 +9,6 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import ProtectedRoute from './components/pages/ProtectedRoute.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
-import ContactHelp from './pages/ContactHelp';
 
 // Import page components
 import LandingPage from './components/pages/LandingPage.jsx';
@@ -19,11 +18,11 @@ import AddItem from './components/pages/AddItem.jsx';
 import LoginPage from './components/pages/LoginPage.jsx'; // Re-added LoginPage
 import SignupPage from './components/pages/SignupPage.jsx'; // Re-added SignupPage
 import BrowsePage from './components/pages/BrowsePage.jsx';
+import ContactHelp from './components/pages/ContactHelp.jsx';
 
 // Placeholder for other pages (ensure these files exist in src/pages/ or are defined here)
 const AdminPanelPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Admin Panel</h2><p>Moderate items and users.</p></div>;
 const AboutPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>About Us</h2><p>Learn more about Rewear.</p></div>;
-const ContactPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Contact Us</h2><p>Get in touch with us.</p></div>;
 const PrivacyPolicyPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Privacy Policy</h2><p>Our commitment to your privacy.</p></div>;
 const TermsOfServicePage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Terms of Service</h2><p>Terms and conditions for using Rewear.</p></div>;
 
@@ -68,7 +67,7 @@ const App = () => {
 
                         
                         <Route path="/about" element={<AboutPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/contact" element={<ContactHelp />} />
                         <Route path="/privacy" element={<PrivacyPolicyPage />} />
                         <Route path="/terms" element={<TermsOfServicePage />} />
 
