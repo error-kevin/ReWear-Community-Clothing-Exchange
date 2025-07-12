@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/AddItem.css'; 
+import '../styles/AddItem.css'; // आपकी CSS फ़ाइल का नाम AddItem.css है
 
 const AddItem = () => {
     const [title, setTitle] = useState('');
@@ -30,7 +30,7 @@ const AddItem = () => {
         setMessage('');
         setMessageType('');
 
-        // Basic validation
+        // Basic validation: सुनिश्चित करें कि सभी आवश्यक फ़ील्ड भरे हों और कम से कम एक इमेज अपलोड की गई हो
         if (!title || !description || !category || !type || !size || !condition || images.length === 0) {
             setMessage('Please fill in all required fields and upload at least one image.');
             setMessageType('error');
@@ -38,7 +38,7 @@ const AddItem = () => {
             return;
         }
 
-        // Prepare data for submission
+        // Prepare data for submission (यह एक वास्तविक API कॉल के लिए डेटा तैयार करता है)
         const itemData = {
             title,
             description,
@@ -47,22 +47,24 @@ const AddItem = () => {
             size,
             condition,
             tags: tags.split(',').map(tag => tag.trim()).filter(tag => tag !== ''),
-            imageUrls: previewImages, // Using preview URLs for simulation
-            status: 'Pending Approval', // Initial status
-            uploadedBy: 'currentUser.id', // Get from AuthContext in a real app
+            // वास्तविक एप्लीकेशन में, आप यहां 'images' array को FormData में जोड़कर सर्वर पर अपलोड करेंगे।
+            // अभी के लिए, हम केवल प्रीव्यू URLs का उपयोग कर रहे हैं।
+            imageUrls: previewImages, 
+            status: 'Pending Approval', // आइटम की प्रारंभिक स्थिति
+            uploadedBy: 'currentUser.id', // वास्तविक ऐप में AuthContext से मिलेगा
             uploadDate: new Date().toISOString(),
         };
 
         console.log('Submitting item:', itemData);
 
-        // --- Simulate API call for adding item ---
+        // --- आइटम जोड़ने के लिए API कॉल का सिमुलेशन ---
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 2000)); // 2 सेकंड की नकली देरी
 
             setMessage('Item listed successfully and is pending admin approval!');
             setMessageType('success');
 
-            // Clear form
+            // फ़ॉर्म क्लियर करें
             setTitle('');
             setDescription('');
             setCategory('');
