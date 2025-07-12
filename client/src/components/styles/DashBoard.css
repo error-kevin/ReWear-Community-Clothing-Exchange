@@ -1,0 +1,141 @@
+/* src/pages/styles/Dashboard.css */
+.dashboard-loading {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.dashboard-container {
+    padding: 40px;
+    font-family: 'Inter', sans-serif;
+}
+
+.dashboard-title {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card {
+    border-left: 5px solid #2196F3; /* Blue */
+}
+
+.items-card {
+    border-left: 5px solid #FFC107; /* Amber */
+}
+
+.swaps-card {
+    border-left: 5px solid #9C27B0; /* Purple */
+}
+
+.card-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.card-text {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.points-balance {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.item-list, .swap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Allows list to take available space */
+}
+
+.item-list li, .swap-list li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-status, .swap-status {
+    color: #777;
+    font-size: 0.9em;
+}
+
+.card-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Aligns button to the start of the flex container */
+    font-family: 'Inter', sans-serif;
+}
+
+.primary-button {
+    background-color: #2196F3; /* Blue */
+}
+.primary-button:hover {
+    background-color: #1976D2;
+}
+
+.secondary-button {
+    background-color: #FFC107; /* Amber */
+    color: #333;
+}
+.secondary-button:hover {
+    background-color: #FFA000;
+}
+
+.tertiary-button {
+    background-color: #9C27B0; /* Purple */
+}
+.tertiary-button:hover {
+    background-color: #7B1FA2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+    .dashboard-title {
+        font-size: 2em;
+    }
+    .dashboard-grid {
+        gap: 20px;
+    }
+    .dashboard-card {
+        padding: 20px;
+    }
+    .card-title {
+        font-size: 1.5em;
+    }
+    .card-text, .item-list li, .swap-list li {
+        font-size: 1em;
+    }
+}

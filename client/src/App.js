@@ -1,13 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+// Import AuthContext and AuthProvider
+import { AuthProvider } from './context/AuthContext.js';
+
+// Import components based on your structure
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import ProtectedRoute from './components/pages/ProtectedRoute.jsx';
+import AdminRoute from './components/AdminRoute.jsx';
+
+// Import page components
 import LandingPage from './components/pages/LandingPage.jsx';
-import DashBoard from './components/pages/DashBoard.jsx';
+import Dashboard from './components/pages/DashBoard.jsx'; // Corrected name for consistency
 import ItemDetail from './components/pages/ItemDetail.jsx';
 import AddItem from './components/pages/AddItem.jsx';
+import LoginPage from './components/pages/LoginPage.jsx'; // Re-added LoginPage
+import SignupPage from './components/pages/SignupPage.jsx'; // Re-added SignupPage
 
-
+// Placeholder for other pages (ensure these files exist in src/pages/ or are defined here)
+const BrowsePage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Browse Items</h2><p>Explore clothing available for swap or redemption.</p></div>;
+const AdminPanelPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Admin Panel</h2><p>Moderate items and users.</p></div>;
+const AboutPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>About Us</h2><p>Learn more about Rewear.</p></div>;
+const ContactPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Contact Us</h2><p>Get in touch with us.</p></div>;
+const PrivacyPolicyPage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Privacy Policy</h2><p>Our commitment to your privacy.</p></div>;
+const TermsOfServicePage = () => <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}><h2>Terms of Service</h2><p>Terms and conditions for using Rewear.</p></div>;
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
@@ -26,54 +43,68 @@ class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            return <h1>Something went wrong.</h1>;
+            return <h1 style={{ padding: '20px', textAlign: 'center', color: '#e74c3c' }}>Something went wrong. Please try again later.</h1>;
         }
-
-        return this.props.children; 
+        return this.props.children;
     }
 }
 
-// Your Functional Component
-const YourComponent = () => {
-    const [count, setCount] = useState(0);
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        console.log('Component mounted or count changed:', count);
-    }, [count]);
-
-    const handleClick = () => {
-        setCount(count + 1);
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
-    };
-
-    return (
-        <div>
-            <h1>Count: {count}</h1>
-            <input ref={inputRef} type="text" placeholder="Focus me on button click" />
-            <button onClick={handleClick}>Increment Count</button>
-        </div>
-    );
-};
-
-
+// Main App Component
 const App = () => {
     return (
         <Router>
-            <Header />
-            <ErrorBoundary>
-                <YourComponent />
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/dashboard" element={<DashBoard />} />
-                    <Route path="/item/:id" element={<ItemDetail />} />
-                    <Route path="/add-item" element={<AddItem />} />
-                    
-                </Routes>
-            </ErrorBoundary>
-            <Footer />
+            {/* AuthProvider must wrap all components that need access to the AuthContext */}
+            <AuthProvider>
+                <Header />
+                <ErrorBoundary>
+                    <Routes>
+                        {/* Public Routes */}
+                        <Route path="/" element={<LandingPage />} />
+                        <Route path="/browse" element={<BrowsePage />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/signup" element={<SignupPage />} />
+                        <Route path="/item/:id" element={<ItemDetail />} /> {/* Item detail can be viewed by anyone */}
+
+                        {/* Supporting Pages */}
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                        <Route path="/terms" element={<TermsOfServicePage />} />
+
+                        {/* Protected Routes (require authentication) */}
+                        <Route
+                            path="/dashboard"
+                            element={
+                                <ProtectedRoute>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/add-item"
+                            element={
+                                <ProtectedRoute>
+                                    <AddItem />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        {/* Admin Protected Routes (require admin role) */}
+                        <Route
+                            path="/admin"
+                            element={
+                                <AdminRoute>
+                                    <AdminPanelPage />
+                                </AdminRoute>
+                            }
+                        />
+
+                        {/* Catch-all for 404 Not Found */}
+                        <Route path="*" element={<div style={{ padding: '20px', textAlign: 'center', fontFamily: 'Inter, sans-serif' }}><h2>404 - Page Not Found</h2><p>The page you are looking for does not exist.</p></div>} />
+                    </Routes>
+                </ErrorBoundary>
+                <Footer />
+            </AuthProvider>
         </Router>
     );
 };
