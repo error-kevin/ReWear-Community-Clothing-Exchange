@@ -2,6 +2,7 @@
 import React from 'react';
 import '../styles/LandingPage.css';
 import { useNavigate } from 'react-router-dom';
+import  image from '../assets/image.png';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const LandingPage = () => {
         </div>
         {/* Clickable Banner Image */}
         <div className="banner-image-container" onClick={() => navigate('/browse')}>
-          <img src="https://images.unsplash.com/photo-1579783900882-c5d3d29a0f6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sustainable fashion clothing swap" className="banner-image" />
+            <img src={image} alt="Stylish people browsing clothes at a swap meet" className="banner-image" />
         </div>
       </div>
 
