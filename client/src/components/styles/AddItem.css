@@ -80,7 +80,7 @@
 
 .form-row .form-group {
     flex: 1; /* उपलब्ध स्थान को समान रूप से बांटने के लिए */
-    margin-bottom: 0; /* पंक्ति में होने पर अतिरिक्त मार्जिन हटाने के लिए */
+    margin-bottom: 0; /* पंक्ति में होने पर अतिरिक्त मार्gin हटाने के लिए */
 }
 
 /* Image Upload Specific Styles */
