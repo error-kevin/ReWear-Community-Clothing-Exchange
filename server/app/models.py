@@ -1,11 +1,20 @@
-from flask_pymongo import PyMongo
+def insert_item(mongo, item_data):
+    return mongo.db.items.insert_one(item_data)
 
-mongo = PyMongo()
+def get_all_items(mongo):
+    return list(mongo.db.items.find())
 
-class Item(mongo.Document):
-    title = mongo.StringField(required=True)
-    description = mongo.StringField(required=True)
-    category = mongo.StringField(required=True)
-    size = mongo.StringField(required=True)
-    condition = mongo.StringField(required=True)
-    tags = mongo.ListField(mongo.StringField())
+def get_item_by_id(mongo, item_id):
+    from bson.objectid import ObjectId
+    return mongo.db.items.find_one({"_id": ObjectId(item_id)})
+
+def update_item(mongo, item_id, update_data):
+    from bson.objectid import ObjectId
+    return mongo.db.items.update_one(
+        {"_id": ObjectId(item_id)},
+        {"$set": update_data}
+    )
+
+def delete_item(mongo, item_id):
+    from bson.objectid import ObjectId
+    return mongo.db.items.delete_one({"_id": ObjectId(item_id)})
