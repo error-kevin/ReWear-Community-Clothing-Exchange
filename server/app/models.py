@@ -1,7 +1,8 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 
-def insert_item(mongo, item_data): 
+def insert_item(mongo, item_data):
+    item_data['status'] = 'pending'  
     return mongo.db.items.insert_one(item_data)
 
 def get_all_items(mongo):
