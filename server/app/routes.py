@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from bson.objectid import ObjectId
 from .models import (
     insert_item, get_all_items,
     insert_user, find_user_by_username, check_user_password
@@ -9,7 +10,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/api/items', methods=['GET'])
 def get_items():
-    items = get_all_items(mongo)
+    items = list(mongo.db.items.find({"status": "approve"}))
     for item in items:
         item['_id'] = str(item['_id'])
     return jsonify(items), 200
@@ -50,7 +51,6 @@ def get_pending_items():
 
 @main.route('/api/admin/item/<item_id>/moderate', methods=['PATCH'])
 def moderate_item(item_id):
-    from bson.objectid import ObjectId
     action = request.json.get("action")
     if action not in ["approve", "reject"]:
         return jsonify({"error": "Invalid action"}), 400
@@ -64,7 +64,6 @@ def moderate_item(item_id):
 
 @main.route('/api/admin/item/<item_id>', methods=['DELETE'])
 def delete_item_admin(item_id):
-    from bson.objectid import ObjectId
     result = mongo.db.items.delete_one({"_id": ObjectId(item_id)})
     if result.deleted_count == 0:
         return jsonify({"error": "Item not found"}), 404
