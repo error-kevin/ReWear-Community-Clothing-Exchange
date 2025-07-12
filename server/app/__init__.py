@@ -3,18 +3,23 @@ from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
 
-from .routes import main as main_routes
-
+# ✅ Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+# ✅ Create PyMongo instance globally (but don't attach yet)
+mongo = PyMongo()
 
+def create_app():
+    app = Flask(__name__)
 
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/rewear')
+    # ✅ Set Mongo URI from .env (or fallback to local)
+    app.config['MONGO_URI'] = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/rewear')
 
-mongo = PyMongo(app)
+    # ✅ Attach Mongo to app
+    mongo.init_app(app)
 
-app.register_blueprint(main_routes)
+    # ✅ Import and register your routes
+    from .routes import main as main_routes
+    app.register_blueprint(main_routes)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    return app
