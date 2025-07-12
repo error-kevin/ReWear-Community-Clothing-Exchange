@@ -2,6 +2,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext.js'; // Adjusted path
+import axios from 'axios'; // Import axios for API calls
 import '../styles/AuthPages.css'; // Adjusted path
 
 const LoginPage = () => {
@@ -11,7 +12,7 @@ const LoginPage = () => {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError(''); // Clear previous errors
 
@@ -21,37 +22,24 @@ const LoginPage = () => {
             return;
         }
 
-        // --- Simulate API call for login ---
-        console.log('Attempting to log in with:', { email, password });
+        try {
+            // Make API call to login
+            const response = await axios.post('http://localhost:5000/api/login', { username: email, password });
+            const { access_token } = response.data;
 
-        // Simulate a successful login after a delay
-        setTimeout(() => {
-            if (email === 'test@example.com' && password === '123') {
-                // Simulate user data and admin status from backend response
-                const userData = {
-                    id: 'user123',
-                    email: email,
-                    username: 'TestUser',
-                    points: 150,
-                };
-                const adminStatus = false; // Set to true for admin login simulation
+            // Simulate user data from backend response
+            const userData = {
+                id: response.data.userId, // Assuming you return userId from backend
+                email: email,
+                username: response.data.username, // Assuming you return username from backend
+                points: response.data.points, // Assuming you return points from backend
+            };
 
-                login(userData, adminStatus); // Call login from AuthContext
-                navigate('/dashboard'); // Redirect to dashboard on successful login
-            } else if (email === 'admin@example.com' && password === 'admin123') {
-                 const userData = {
-                    id: 'admin456',
-                    email: email,
-                    username: 'AdminUser',
-                    role: 'admin',
-                };
-                login(userData, true); // Log in as admin
-                navigate('/admin'); // Redirect to admin panel
-            }
-            else {
-                setError('Invalid email or password.');
-            }
-        }, 1000);
+            login(access_token, userData); // Call login from AuthContext
+            navigate('/dashboard'); // Redirect to dashboard on successful login
+        } catch (error) {
+            setError('Invalid email or password.');
+        }
     };
 
     return (

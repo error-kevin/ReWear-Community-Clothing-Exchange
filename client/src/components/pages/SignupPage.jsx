@@ -35,14 +35,11 @@ const SignupPage = () => {
         console.log('Attempting to sign up with:', { username, email, password });
 
         setTimeout(() => {
-            // Simulate successful signup
             setSuccess('Account created successfully! Redirecting to login...');
-            // In a real app, you'd make an API call here.
-            // If successful, redirect to login or auto-login.
             setTimeout(() => {
                 navigate('/login');
             }, 2000); // Redirect after 2 seconds
-        }, 1000);
+        }, 1000); // Wait for 1 second before showing success message
     };
 
     return (

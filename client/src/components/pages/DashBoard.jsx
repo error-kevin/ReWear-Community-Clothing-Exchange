@@ -1,27 +1,27 @@
+// src/pages/Dashboard.jsx
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js'; // Adjusted path
 import '../styles/DashBoard.css'; // New import for Dashboard styles
 
 const Dashboard = () => {
-    const { currentUser } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
-    if (!currentUser) {
+    if (!user) {
         return <div className="dashboard-loading">Loading user data...</div>;
     }
 
     return (
         <div className="dashboard-container">
             <h1 className="dashboard-title">
-                Welcome, {currentUser.username || currentUser.email}!
+                Welcome, {user.username || user.email}!
             </h1>
 
             <div className="dashboard-grid">
-
                 {/* Profile Details & Points Balance */}
                 <div className="dashboard-card profile-card">
                     <h2 className="card-title">Your Profile</h2>
-                    <p className="card-text"><strong>Email:</strong> {currentUser.email}</p>
-                    <p className="card-text"><strong>Points Balance:</strong> <span className="points-balance">{currentUser.points || 0}</span></p>
+                    <p className="card-text"><strong>Email:</strong> {user.email}</p>
+                    <p className="card-text"><strong>Points Balance:</strong> <span className="points-balance">{user.points || 0}</span></p>
                     <button className="card-button primary-button">Edit Profile</button>
                 </div>
 
@@ -45,7 +45,6 @@ const Dashboard = () => {
                     </ul>
                     <button className="card-button tertiary-button">View All Swaps</button>
                 </div>
-
             </div>
         </div>
     );

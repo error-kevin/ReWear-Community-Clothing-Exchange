@@ -1,5 +1,9 @@
 from flask import Blueprint, request, jsonify
+<<<<<<< Updated upstream
 from bson.objectid import ObjectId
+=======
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+>>>>>>> Stashed changes
 from .models import (
     insert_item, get_all_items,
     insert_user, find_user_by_username, check_user_password
@@ -40,7 +44,19 @@ def login_user():
     user = find_user_by_username(mongo, username)
     if not user or not check_user_password(user['password'], password):
         return jsonify({"error": "Invalid username or password"}), 401
-    return jsonify({"message": "Login successful", "username": username}), 200
+    
+    # Create JWT token
+    access_token = create_access_token(identity=str(user['_id']))
+    return jsonify({"message": "Login successful", "access_token": access_token}), 200
+
+@main.route('/api/dashboard', methods=['GET'])
+@jwt_required()
+def dashboard():
+    current_user_id = get_jwt_identity()
+    user = mongo.db.users.find_one({"_id": ObjectId(current_user_id)})
+    if user:
+        return jsonify({"username": user['username'], "points": user.get('points', 0)}), 200
+    return jsonify({"error": "User not found"}), 404
 
 @main.route('/api/admin/items/pending', methods=['GET'])
 def get_pending_items():

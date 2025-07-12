@@ -13,9 +13,6 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate(); // For redirection after login/logout
 
     useEffect(() => {
-        // This effect runs once when the component mounts
-        // Here you would typically check for an existing token (e.g., in localStorage)
-        // to see if the user is already logged in.
         const token = localStorage.getItem('authToken');
         const userData = localStorage.getItem('user');
 
@@ -25,7 +22,6 @@ export const AuthProvider = ({ children }) => {
                 setIsAuthenticated(true);
             } catch (error) {
                 console.error("Failed to parse user data from localStorage:", error);
-                // Clear invalid data
                 localStorage.removeItem('authToken');
                 localStorage.removeItem('user');
                 setIsAuthenticated(false);
@@ -35,9 +31,8 @@ export const AuthProvider = ({ children }) => {
         setLoading(false); // Set loading to false once initial check is done
     }, []);
 
-    const login = async (token, userData) => {
-        // Implement your login logic here
-        // This is just an example of storing token and user data
+    const login = (userData, adminStatus) => {
+        const token = 'dummy_token'; // Replace with actual token from API
         localStorage.setItem('authToken', token);
         localStorage.setItem('user', JSON.stringify(userData));
         setIsAuthenticated(true);
@@ -46,7 +41,6 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        // Implement your logout logic here
         localStorage.removeItem('authToken');
         localStorage.removeItem('user');
         setIsAuthenticated(false);
@@ -54,7 +48,6 @@ export const AuthProvider = ({ children }) => {
         navigate('/login'); // Redirect to login page after logout
     };
 
-    // The value provided to consumers of this context
     const authContextValue = {
         isAuthenticated,
         user,
@@ -63,9 +56,6 @@ export const AuthProvider = ({ children }) => {
         loading // Expose loading state
     };
 
-    // If you have an asynchronous check on mount (e.g., token validation),
-    // you might want to render children only after loading is complete to avoid
-    // components trying to use context values before they are set.
     if (loading) {
         return <div>Loading authentication...</div>; // Or a more sophisticated loading spinner
     }
