@@ -1,10 +1,11 @@
+// Header.jsx
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext.js'; 
-import './Header.css'; 
+import { AuthContext } from '../context/AuthContext.js';
+import './Header.css'; // Ensure this path is correct
 
 const Header = () => {
-    const { isAuthenticated, isAdmin, logout } = useContext(AuthContext); // Use useContext hook
+    const { isAuthenticated, isAdmin, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -21,6 +22,7 @@ const Header = () => {
             </div>
             <nav className="header-nav">
                 <ul>
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/browse">Browse</Link></li>
                     {isAuthenticated ? (
                         <>
@@ -30,10 +32,12 @@ const Header = () => {
                             <li><button onClick={handleLogout} className="logout-button">Logout</button></li>
                         </>
                     ) : (
-                        <>
-                            <li><Link to="/login">Login</Link></li>
-                            <li><Link to="/signup">Signup</Link></li>
-                        </>
+                        // Combined Login/Sign Up button
+                        <li>
+                            <button onClick={() => navigate('/login')} className="header-auth-combined-button">
+                                Login / Sign Up
+                            </button>
+                        </li>
                     )}
                 </ul>
             </nav>

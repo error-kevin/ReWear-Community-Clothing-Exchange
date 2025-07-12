@@ -55,7 +55,6 @@ const App = () => {
         <Router>
             {/* AuthProvider must wrap all components that need access to the AuthContext */}
             <AuthProvider>
-                <Header />
                 <ErrorBoundary>
                     <Routes>
                         {/* Public Routes */}

@@ -1,69 +1,363 @@
+/* src/styles/BrowsePage.css */
+
 .browse-container {
-  padding: 2rem;
-  background: #f5f5f0;
-  min-height: 90vh;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
+    padding: 0;
+    text-align: center;
+    background: #f5f5f0; /* Light beige background */
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.browse-container h1 {
-  font-size: 3rem;
-  color: #4e3b31;
+/* Browse Page Hero/Banner */
+.browse-hero {
+    width: 100%;
+    padding: 3rem 2rem;
+    background-color: #e0d8cc; /* A softer shade of your brand color */
+    color: #4e3b31;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.browse-container p {
-  font-size: 1.2rem;
-  color: #6b4f3a;
-  margin-bottom: 2rem;
+.browse-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
-.item-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
+.browse-hero p {
+    font-size: 1.2rem;
+    color: #6b4f3a;
 }
 
-.item-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-align: left;
+.browse-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto; /* Add bottom margin */
+    padding: 0 2rem;
+    gap: 2rem; /* Space between sidebar and products */
+    align-items: flex-start; /* Align items to the top */
 }
 
-.item-card img {
-  width: 100%;
-  border-radius: 8px;
+/* Filter Sidebar */
+.filter-sidebar {
+    flex: 0 0 280px; /* Fixed width for sidebar */
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    position: sticky; /* Makes the sidebar sticky */
+    top: 100px; /* Adjust based on header height */
+    align-self: flex-start; /* Ensure it sticks to the top of its container */
 }
 
-.item-card h3 {
-  font-size: 1.5rem;
-  color: #6b4f3a;
+.filter-sidebar h3 {
+    font-size: 2rem;
+    color: #4e3b31;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
 }
 
-.item-card p {
-  font-size: 1rem;
-  color: #7a5b4a;
+.clear-filters-btn {
+    background-color: #8d5b3a;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
-.item-card span {
-  display: block;
-  font-size: 1.2rem;
-  color: #4e3b31;
-  margin: 0.5rem 0;
+.clear-filters-btn:hover {
+    background-color: #7a4a30;
+    transform: translateY(-2px);
 }
 
-.item-card button {
-  background-color: #8d5b3a;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.filter-group {
+    margin-bottom: 2rem;
 }
 
-.item-card button:hover {
-  background-color: #7a4a30;
+.filter-group h4 {
+    font-size: 1.3rem;
+    color: #6b4f3a;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed #f0f0e8;
+    padding-bottom: 0.5rem;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    color: #4e3b31;
+    cursor: pointer;
+}
+
+.filter-checkbox input[type="checkbox"] {
+    margin-right: 0.8rem;
+    width: 18px;
+    height: 18px;
+    accent-color: #8d5b3a; /* Custom color for checkbox */
+    cursor: pointer;
+}
+
+.range-display {
+    font-size: 1.1rem;
+    color: #4e3b31;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.range-slider {
+    width: 100%;
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    height: 8px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.range-slider:hover {
+    opacity: 1;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #8d5b3a;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #8d5b3a;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Product Listings Main Area */
+.product-listings-main {
+    flex: 1; /* Takes remaining space */
+    padding: 0 1rem; /* Add some internal padding */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger cards, responsive */
+    gap: 2rem; /* Space between product cards */
+    justify-content: center;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Stronger, more elegant shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden; /* Ensures image corners are rounded */
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px; /* Taller images for a premium feel */
+    object-fit: cover;
+    border-radius: 8px; /* Rounded image corners */
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.03); /* Subtle zoom on image hover */
+}
+
+.product-card h3 {
+    font-size: 1.6rem;
+    color: #4e3b31;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #7a5b4a;
+    margin-bottom: 0.4rem;
+}
+
+.product-points {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8d5b3a; /* Highlight points */
+    margin-top: 1rem;
+}
+
+.no-products-message {
+    font-size: 1.4rem;
+    color: #6b4f3a;
+    margin-top: 5rem;
+    grid-column: 1 / -1; /* Center message across all columns */
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.pagination-btn {
+    background-color: #8d5b3a;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #7a4a30;
+}
+
+.pagination-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 1.1rem;
+    color: #4e3b31;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .browse-content {
+        flex-direction: column; /* Stack sidebar and products */
+        padding: 0 1.5rem;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+        max-width: 600px; /* Constrain sidebar width on smaller screens */
+        margin: 0 auto 2rem auto; /* Center and add bottom margin */
+        position: static; /* Remove sticky behavior */
+        top: auto;
+    }
+
+    .product-listings-main {
+        padding: 0;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .browse-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .browse-hero p {
+        font-size: 1rem;
+    }
+
+    .filter-sidebar {
+        padding: 1.5rem;
+    }
+
+    .filter-sidebar h3 {
+        font-size: 1.8rem;
+    }
+
+    .filter-group h4 {
+        font-size: 1.2rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on small tablets/mobile */
+        gap: 1.5rem;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .browse-hero {
+        padding: 2rem 1rem;
+    }
+
+    .browse-hero h1 {
+        font-size: 2rem;
+    }
+
+    .browse-content {
+        padding: 0 1rem;
+    }
+
+    .filter-sidebar {
+        padding: 1rem;
+    }
+
+    .filter-sidebar h3 {
+        font-size: 1.5rem;
+    }
+
+    .clear-filters-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .product-card {
+        padding: 1rem;
+    }
+
+    .product-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .product-card p {
+        font-size: 0.9rem;
+    }
+
+    .product-points {
+        font-size: 1.1rem;
+    }
 }
