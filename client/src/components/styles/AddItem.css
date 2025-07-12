@@ -1,173 +1,221 @@
-/* src/pages/styles/AddItem.css */
+/* src/styles/AddItem.css */
+
 .add-item-container {
-    padding: 40px;
-    font-family: 'Inter', sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 3rem 2rem;
+    max-width: 900px; /* फॉर्म को सेंटर में रखने और ज़्यादा चौड़ा होने से रोकने के लिए */
+    margin: 3rem auto; /* ऊपर और नीचे मार्जिन, और हॉरिजॉन्टली सेंटर */
+    background-color: #ffffff; /* सफेद बैकग्राउंड */
+    border-radius: 12px; /* गोल कोने */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+    font-family: 'Poppins', sans-serif; /* थीम का फॉन्ट */
+    color: #4e3b31; /* टेक्स्ट कलर */
 }
 
 .add-item-title {
-    font-size: 2.5em;
-    color: #4CAF50;
-    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #8d5b3a; /* थीम का मुख्य कलर */
     text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700; /* थोड़ा बोल्ड */
 }
 
 .add-item-form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.form-message {
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 1.1em;
-    border: 1px solid;
-}
-
-.form-message.success {
-    color: #27ae60;
-    background-color: #e8f8f2;
-    border-color: #27ae60;
-}
-
-.form-message.error {
-    color: #e74c3c;
-    background-color: #fdeded;
-    border-color: #e74c3c;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* फ़ॉर्म ग्रुप्स के बीच स्पेस */
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
+    display: block; /* लेबल को नई लाइन पर लाने के लिए */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #6b4f3a; /* लेबल का कलर */
 }
 
 .required-star {
-    color: red;
+    color: #d9534f; /* लाल रंग अनिवार्य फील्ड्स के लिए */
+    margin-left: 0.25rem;
 }
 
 .form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"],
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding in width */
-    font-family: 'Inter', sans-serif;
+    padding: 1rem 1.2rem;
+    border: 1px solid #ccc; /* हल्का ग्रे बॉर्डर */
+    border-radius: 8px; /* गोल कोने */
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #4e3b31;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group textarea::placeholder {
+    color: #a0a0a0; /* प्लेसहोल्डर टेक्स्ट का कलर */
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #8d5b3a; /* फोकस करने पर थीम कलर */
+    box-shadow: 0 0 0 3px rgba(141, 91, 58, 0.2); /* थीम कलर के साथ हल्का शैडो */
+    outline: none; /* डिफ़ॉल्ट आउटलाइन हटाने के लिए */
 }
 
 .form-group textarea {
-    resize: vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-    outline: none;
+    resize: vertical; /* केवल वर्टिकली रिसाइज़ करने की अनुमति दें */
+    min-height: 100px; /* न्यूनतम ऊंचाई */
 }
 
 .form-row {
     display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 2rem; /* पंक्तियों के बीच स्पेस */
 }
 
 .form-row .form-group {
-    flex: 1 1 45%; /* Distribute space, allow shrinking/growing */
-    margin-bottom: 0; /* Reset margin for inner form groups */
+    flex: 1; /* उपलब्ध स्थान को समान रूप से बांटने के लिए */
+    margin-bottom: 0; /* पंक्ति में होने पर अतिरिक्त मार्जिन हटाने के लिए */
 }
 
+/* Image Upload Specific Styles */
 .form-group input[type="file"] {
-    display: block;
-    margin-bottom: 15px;
+    padding: 0.8rem 0; /* इनपुट टाइप फाइल के लिए पैडिंग एडजस्ट करें */
 }
 
 .image-previews {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: wrap; /* इमेज को रैप करने की अनुमति दें */
+    gap: 1rem; /* प्रीव्यू इमेज के बीच स्पेस */
+    margin-top: 1rem;
+    justify-content: center; /* इमेज को सेंटर में अलाइन करने के लिए */
+    border: 1px dashed #cccccc; /* डैश बॉर्डर */
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f8f8; /* हल्का बैकग्राउंड */
 }
 
 .image-preview {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    width: 100px; /* प्रीव्यू इमेज की निश्चित चौड़ाई */
+    height: 100px; /* प्रीव्यू इमेज की निश्चित ऊंचाई */
+    object-fit: cover; /* इमेज को कंटेनर में फिट करने के लिए क्रॉप करें */
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+/* Message Styles */
+.form-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-message.success {
+    background-color: #e6ffe6; /* हल्का हरा */
+    color: #28a745; /* हरा टेक्स्ट */
+    border: 1px solid #28a745;
+}
+
+.form-message.error {
+    background-color: #ffe6e6; /* हल्का लाल */
+    color: #dc3545; /* लाल टेक्स्ट */
+    border: 1px solid #dc3545;
+}
+
+/* Submit Button */
 .submit-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #4CAF50;
+    background-color: #8d5b3a; /* थीम का मुख्य कलर */
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1.2em;
-    font-weight: bold;
+    padding: 1.2rem 2rem;
+    border-radius: 10px; /* गोल कोने */
+    font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* बटन को पूरी चौड़ाई देने के लिए */
+    max-width: 300px; /* अधिकतम चौड़ाई */
+    margin: 1.5rem auto 0 auto; /* सेंटर में रखने और ऊपर मार्जिन देने के लिए */
+    display: block; /* ताकि मार्जिन ऑटो काम करे */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .submit-button:hover:not(:disabled) {
-    background-color: #45a049;
-    transform: translateY(-1px);
-}
-
-.submit-button:active:not(:disabled) {
-    transform: translateY(0);
+    background-color: #7a4a30; /* हॉवर पर गहरा कलर */
+    transform: translateY(-3px); /* हल्का लिफ्ट इफेक्ट */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .submit-button:disabled {
-    background-color: #ccc;
+    background-color: #ccc; /* डिसेबल्ड होने पर ग्रे कलर */
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .add-item-container {
-        padding: 20px;
+        padding: 2rem 1rem;
+        margin: 2rem auto;
     }
+
     .add-item-title {
-        font-size: 2em;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
-    .add-item-form {
-        padding: 20px;
-    }
+
     .form-row {
-        flex-direction: column; /* Stack items vertically on small screens */
-        gap: 0; /* Remove gap when stacked */
+        flex-direction: column; /* छोटे स्क्रीन पर पंक्तियों को स्टैक करें */
+        gap: 1rem;
     }
-    .form-row .form-group {
-        flex: 1 1 100%; /* Take full width when stacked */
-        margin-bottom: 20px; /* Add margin back for stacked groups */
+
+    .form-group label {
+        font-size: 1rem;
     }
-    .form-row .form-group:last-child {
-        margin-bottom: 0; /* No bottom margin for the last group in a row */
+
+    .form-group input[type="text"],
+    .form-group textarea,
+    .form-group select {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
     }
-    .form-group input, .form-group textarea, .form-group select {
-        font-size: 0.9em;
-        padding: 10px;
-    }
+
     .submit-button {
-        font-size: 1em;
-        padding: 12px;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        max-width: 100%; /* छोटे स्क्रीन पर पूरी चौड़ाई ले */
+    }
+}
+
+@media (max-width: 480px) {
+    .add-item-container {
+        padding: 1.5rem 0.8rem;
+        margin: 1.5rem auto;
+    }
+
+    .add-item-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea,
+    .form-group select {
+        font-size: 0.9rem;
+    }
+
+    .image-preview {
+        width: 80px;
+        height: 80px;
     }
 }
